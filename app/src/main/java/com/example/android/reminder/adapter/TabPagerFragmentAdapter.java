@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.android.reminder.fragment.ExampleFragment;
+import com.example.android.reminder.fragment.NotificationFragment;
 
 public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
 
@@ -29,7 +30,7 @@ public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return ExampleFragment.getInstance();
+                return new NotificationFragment();
             case 1:
                 return ExampleFragment.getInstance();
             case 2:
