@@ -34,12 +34,12 @@ public class NotificationFragment extends ListFragment {
     }
 
     public List<Notification> getNotificationList() {
-        List<Notification> notificationList = new ArrayList<Notification>();
+        List<Notification> notificationList = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
             Notification notification = new Notification("Title "+i, "Description "+i, "2015.10.18");
             notificationList.add(notification);
         }
-        return notificationList;
+        return notificationList = new ArrayList<>();
     }
 }

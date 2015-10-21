@@ -6,4 +6,5 @@
     <string name="menu_item_notification">Notification</string>
     <string name="view_navigation_open">Open</string>
     <string name="view_navigation_close">Close</string>
+    <string name="empty_notification_list">Add new notification</string>
 </resources>
