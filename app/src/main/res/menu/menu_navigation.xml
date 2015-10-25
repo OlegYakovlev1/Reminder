@@ -6,4 +6,9 @@
         android:title="@string/menu_item_notification"
         android:orderInCategory="1"
         android:icon="@mipmap/ic_message_text"/>
+    <item
+        android:id="@+id/actionAddNewItem"
+        android:title="@string/menu_add_item"
+        android:orderInCategory="2"
+        android:icon="@mipmap/ic_plus_circle_outline"/>
 </menu>

@@ -67,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 drawerLayout.closeDrawers();
-                switch (menuItem.getItemId()){
+                switch (menuItem.getItemId()) {
                     case R.id.actionNotificationItem:
                         showNotificationTab();
+                    case R.id.actionAddNewItem:
+                        showAddItem();
                 }
                 return true;
             }
@@ -78,6 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void showNotificationTab(){
         viewPager.setCurrentItem(Constants.TAB_NOTIFICATION);
+    }
+
+    private void showAddItem(){
+        TestDialog testDialog = new TestDialog();
+        testDialog.show(getFragmentManager(),"testDialog");
+
     }
 
 }
