@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.example.android.reminder.adapter.TabPagerFragmentAdapter;
+import com.example.android.reminder.fragment.AddNotificationFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,8 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.actionNotificationItem:
                         showNotificationTab();
+                        break;
                     case R.id.actionAddNewItem:
                         showAddItem();
+                        break;
                 }
                 return true;
             }
@@ -83,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAddItem(){
-        TestDialog testDialog = new TestDialog();
-        testDialog.show(getFragmentManager(),"testDialog");
+        AddNotificationFragment addNotificationFragment = new AddNotificationFragment();
+        addNotificationFragment.show(getFragmentManager(),"addNotificationFragment");
 
     }
 

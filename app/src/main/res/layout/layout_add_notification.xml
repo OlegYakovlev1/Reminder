@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtAddTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_title"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/editTxtAddTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_no_title"
+        android:gravity="center"
+        android:inputType="text" />
+    <TextView
+        android:id="@+id/txtAddDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_description"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/editTxtAddDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_no_description"
+        android:gravity="center"
+        android:inputType="textMultiLine"/>
+    <TextView
+        android:id="@+id/txtAddDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_date"
+        android:gravity="center"/>
+    <EditText
+        android:id="@+id/editTxtAddDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_no_date"
+        android:gravity="center"
+        android:inputType="date"
+        android:clickable="true"
+        android:cursorVisible="false"
+        android:focusable="false"/>
+
+</LinearLayout>

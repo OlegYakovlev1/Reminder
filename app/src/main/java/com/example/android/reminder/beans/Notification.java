@@ -2,14 +2,33 @@ package com.example.android.reminder.beans;
 
 public class Notification {
 
+    private int id;
     private String title;
     private String description;
     private String date;
+
+    public Notification(int id, String title, String description, String date) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+    }
 
     public Notification(String title, String description, String date) {
         this.title = title;
         this.description = description;
         this.date = date;
+    }
+
+    public Notification() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
