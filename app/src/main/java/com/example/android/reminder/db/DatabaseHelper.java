@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     public static final String DATABASE_NAME = "reminder.db";
     private static final String DATABASE_NOTIFICATIONS_TABLE = "notifications";
     private static final String KEY_ID = "id";

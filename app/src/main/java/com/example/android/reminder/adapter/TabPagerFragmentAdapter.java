@@ -4,11 +4,15 @@ package com.example.android.reminder.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.SparseArray;
 
+import com.example.android.reminder.Constants;
 import com.example.android.reminder.fragment.ExampleFragment;
 import com.example.android.reminder.fragment.NotificationFragment;
 
 public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
+
+    SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
 
     private String[] tabs;
 
@@ -19,6 +23,7 @@ public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
                 "Tab 2",
                 "Tab 3"
         };
+        registeredFragments.put(Constants.TAB_NOTIFICATION, new NotificationFragment());
     }
 
     @Override
@@ -28,9 +33,10 @@ public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
+
         switch (position){
             case 0:
-                return new NotificationFragment();
+                return registeredFragments.get(position);
             case 1:
                 return ExampleFragment.getInstance();
             case 2:

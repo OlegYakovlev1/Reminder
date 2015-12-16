@@ -4,6 +4,7 @@ package com.example.android.reminder.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,18 +18,21 @@ import com.example.android.reminder.db.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationFragment extends ListFragment {
+public class NotificationFragment extends ListFragment{
 
     private static final int LAYOUT = R.layout.layout_notification_fragment;
     List<Notification> notificationList;
     Context context;
+    NotificationAdapter notificationAdapter;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getActivity();
-        notificationList = getNotificationList();
+
+        Log.v("TEST","onCreate");
+
     }
 
     @Override
@@ -40,8 +44,17 @@ public class NotificationFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        NotificationAdapter notificationAdapter = new NotificationAdapter(context,getNotificationList());
+        Log.v("TEST", "onActivityCreated");
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        notificationList = getNotificationList();
+        notificationAdapter = new NotificationAdapter(context,notificationList);
         setListAdapter(notificationAdapter);
+        Log.v("TEST", "onResume");
     }
 
     public List<Notification> getNotificationList() {
@@ -57,4 +70,12 @@ public class NotificationFragment extends ListFragment {
         }
         return notificationList;
     }
+
+    public void onDBNotificationChanged(){
+        notificationList = getNotificationList();
+        notificationAdapter = new NotificationAdapter(context,notificationList);
+        setListAdapter(notificationAdapter);
+    }
+
+
 }

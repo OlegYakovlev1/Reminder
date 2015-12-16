@@ -12,19 +12,21 @@ import android.view.MenuItem;
 
 import com.example.android.reminder.adapter.TabPagerFragmentAdapter;
 import com.example.android.reminder.fragment.AddNotificationFragment;
+import com.example.android.reminder.fragment.NotificationFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements  AddNotificationFragment.OnDBChangedListener{
 
     private static final int LAYOUT = R.layout.activity_main;
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+    TabPagerFragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppDefault);
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppDefault);
         setContentView(LAYOUT);
 
         initToolbar();
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabs() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        TabPagerFragmentAdapter adapter = new TabPagerFragmentAdapter(getSupportFragmentManager());
+        adapter = new TabPagerFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
@@ -87,8 +89,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAddItem(){
         AddNotificationFragment addNotificationFragment = new AddNotificationFragment();
-        addNotificationFragment.show(getFragmentManager(),"addNotificationFragment");
+        addNotificationFragment.show(getFragmentManager(), "addNotificationFragment");
 
+    }
+
+    @Override
+    public void onDBNotificationChanged(){
+        NotificationFragment notificationFragment = (NotificationFragment)adapter.getItem(0);
+        notificationFragment.onDBNotificationChanged();
     }
 
 }

@@ -1,10 +1,12 @@
 package com.example.android.reminder.fragment;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.DatePicker;
@@ -20,6 +22,7 @@ public class AddNotificationFragment extends DialogFragment {
     EditText editTextTitle;
     EditText editTextDescription;
     EditText editTextDate;
+    private OnDBChangedListener mCallback;
 
 
     @Override
@@ -75,6 +78,27 @@ public class AddNotificationFragment extends DialogFragment {
         }catch (Exception e){
             Toast toast = Toast.makeText(getActivity(),"Error:"+ e.toString(),Toast.LENGTH_SHORT);
             toast.show();
+        }
+    }
+
+    public interface OnDBChangedListener {
+        public void onDBNotificationChanged();
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        Log.v("TEST","onDismiss");
+        mCallback.onDBNotificationChanged();
+        super.onDismiss(dialog);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mCallback = (OnDBChangedListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnDBChangedListener");
         }
     }
 }
