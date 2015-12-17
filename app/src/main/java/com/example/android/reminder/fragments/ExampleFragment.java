@@ -1,4 +1,4 @@
-package com.example.android.reminder.fragment;
+package com.example.android.reminder.fragments;
 
 
 import android.os.Bundle;

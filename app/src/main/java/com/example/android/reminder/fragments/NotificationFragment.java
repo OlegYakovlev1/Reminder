@@ -1,4 +1,4 @@
-package com.example.android.reminder.fragment;
+package com.example.android.reminder.fragments;
 
 
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.android.reminder.R;
-import com.example.android.reminder.adapter.NotificationAdapter;
+import com.example.android.reminder.adapters.NotificationAdapter;
 import com.example.android.reminder.beans.Notification;
 import com.example.android.reminder.db.DatabaseHelper;
 

@@ -1,5 +1,6 @@
 package com.example.android.reminder;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,9 +11,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.android.reminder.adapter.TabPagerFragmentAdapter;
-import com.example.android.reminder.fragment.AddNotificationFragment;
-import com.example.android.reminder.fragment.NotificationFragment;
+import com.example.android.reminder.adapters.TabPagerFragmentAdapter;
+import com.example.android.reminder.fragments.AddNotificationFragment;
+import com.example.android.reminder.fragments.NotificationFragment;
+import com.example.android.reminder.services.NotificationService;
 
 public class MainActivity extends AppCompatActivity implements  AddNotificationFragment.OnDBChangedListener{
 
@@ -29,10 +31,17 @@ public class MainActivity extends AppCompatActivity implements  AddNotificationF
         setTheme(R.style.AppDefault);
         setContentView(LAYOUT);
 
+
         initToolbar();
         initNavigationView();
         initTabs();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        startService(new Intent(this, NotificationService.class));
     }
 
     private void initToolbar(){

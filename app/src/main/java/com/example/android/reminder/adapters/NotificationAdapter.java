@@ -1,4 +1,4 @@
-package com.example.android.reminder.adapter;
+package com.example.android.reminder.adapters;
 
 
 import android.content.Context;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.example.android.reminder.R;
 import com.example.android.reminder.beans.Notification;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationAdapter extends BaseAdapter{

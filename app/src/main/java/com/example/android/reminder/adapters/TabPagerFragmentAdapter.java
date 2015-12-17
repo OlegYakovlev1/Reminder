@@ -1,4 +1,4 @@
-package com.example.android.reminder.adapter;
+package com.example.android.reminder.adapters;
 
 
 import android.support.v4.app.Fragment;
@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.util.SparseArray;
 
 import com.example.android.reminder.Constants;
-import com.example.android.reminder.fragment.ExampleFragment;
-import com.example.android.reminder.fragment.NotificationFragment;
+import com.example.android.reminder.fragments.ExampleFragment;
+import com.example.android.reminder.fragments.NotificationFragment;
 
 public class TabPagerFragmentAdapter extends FragmentPagerAdapter{
 
